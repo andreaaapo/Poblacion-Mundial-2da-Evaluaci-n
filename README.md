@@ -1,2 +1,7 @@
-# Poblacion-Mundial-2da-Evaluaci-n
-Segunda Evaluación
+# Séptima clase
+
+### Multimedia II
+
+Jueves, 22 de noviembre 2018
+
+Hoy comenzaremos a preparar la segunda evaluación.

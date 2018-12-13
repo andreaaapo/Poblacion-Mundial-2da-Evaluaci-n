@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+   
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+
+<title>Población Mundial</title>
+<!-- Search Engine -->
+<meta name="description" content="La población mundial en constante crecimiento">
+<meta name="image" content="https://png.pngtree.com/element_origin_min_pic/16/08/29/1057c3a3ab110de.jpg">
+<!-- Schema.org for Google -->
+<meta itemprop="name" content="Población Mundial">
+<meta itemprop="description" content="La población mundial en constante crecimiento">
+<meta itemprop="image" content="https://www.flaticon.com/authors/turkkub">
+<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+<meta name="og:title" content="Población Mundial">
+<meta name="og:description" content="La población mundial en constante crecimiento">
+<meta name="og:type" content="website">
+    <link rel="icon" href="media/44386.png" sizes="16x16" type="image/png">
+
+    <!-- Vamos a buscar el CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Vamos a buscar el CSS de Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Vamos por nuestro CSS, basado en https://startbootstrap.com/template-overviews/grayscale/ -->
+    <link href="style.css" rel="stylesheet">
+    <!-- Aquí vamos por el estilo y script del mapa-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+</head>
+
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><span class="titular"></span></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#dataviz">Visualizaciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Este encabezado viene de https://startbootstrap.com/snippets/video-header/ -->
+    <header>
+        <div class="overlay"></div>
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <!--Favor revisar https://www.w3schools.com/html/html5_video.asp-->
+            <source src="https://r4---sn-a5meknee.googlevideo.com/videoplayback?sparams=aitags,clen,dur,ei,expire,gir,id,ip,ipbits,itag,keepalive,lmt,mime,mip,mm,mn,ms,mv,pl,requiressl,source&aitags=133,134,135,136,137,160,242,243,244,247,248,278&clen=67601110&dur=205.872&ei=v7YSXIu6FJimxwK-35uICg&gir=yes&id=o-ABuKLB-gGMXhXWq9qf8CNPJ1n1hhVorp0cvgh1vujeVg&ip=2001:bc8:4700:2000::6c35&ipbits=0&itag=248&keepalive=yes&lmt=1482884283130570&mime=video/webm&pl=24&requiressl=yes&source=youtube&expire=1544751903&key=cms1&fvip=4&c=WEB&signature=02995387CC89804388B5FAEA7D16A97680E90607.4AED5D357C3FA285BE7BA73A81753612CBB3313F&title=EPIC+ADVENTURES+AROUND+THE+WORLD+-+HD+Time-lapse+%26+Drone+Footage.webm&redirect_counter=1&cm2rm=sn-25gkd7z&fexp=23763603&req_id=d14ab701bd6ba3ee&cms_redirect=yes&mip=200.89.68.235&mm=34&mn=sn-a5meknee&ms=ltu&mt=1544730157&mv=m" type="video/mp4">
+        </video>
+        <div class="container h-100">
+            <div class="d-flex text-center h-100">
+                <div class="my-auto w-100 text-white">
+                    <h1 class="display-3 titular"></h1>
+                    <h2>En constante crecimiento</h2>
+                    <p class="pt-3"><a href="#about"><i class="fas fa-3x fa-arrow-alt-circle-down"></i></i></a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About Section -->
+    <section id="about" class="about-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-white mb-4">¿Cuántos somos?</h2>
+                    <p class="text-white-50">Actualmente somos 7.600 millones de personas y alcanzaremos los 8.600 millones para el año 2030.
+                </div>
+            </div>
+            <img src="media/skyline.png" class="img-fluid" alt="">
+        </div>
+    </section>
+
+    <!-- dataviz Section -->
+    <section id="dataviz" class="dataviz-section bg-light">
+        <div class="container">
+
+            <!-- MAPA -->
+            <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                <div class="col-xl-8 col-lg-7">
+                    <div id="leaflet"></div>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Los 3 países más poblados</h4>
+                        <p class="text-black-50 mb-0">China:  1.380.996.000</p>
+                        <p class="text-black-50 mb-0">India: 1.331.793.000</p>
+                        <p class="text-black-50 mb-0">Estados Unidos: 325.318.000</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRIMER GRÁFICO -->
+            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+                <div class="col-lg-6">
+                    <svg id="chart-1"></svg>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Las ciudades más pobladas</h4>
+                                <p class="mb-0 text-white-50">Aquí un ejemplo de las 15 ciudades más pobladas. La mayoría son pertenecientes al continente asiático, siendo Tokio, Japón, una de las más pobladas en el mundo.</p>
+                                <hr class="d-none d-lg-block mb-0 ml-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEGUNDO GRÁFICO -->
+            <div class="row justify-content-center no-gutters">
+                <div class="col-lg-6">
+                    <svg id="chart-2"></svg>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <h4 class="text-white">Los países con menor población</h4>
+                                <p class="mb-0 text-white-50">Estos son los 4 países con menor cantidad de habitantes, la mayoría está en Oceanía, el continente más pequeño y menos poblado después de la antártida. </p>
+                                <hr class="d-none d-lg-block mb-0 mr-0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50">
+        <div class="container">
+            <p><span class="titular"></span> fue desarrollado por Andrea Verdugo para Multimedia II</p>
+            <p>Segundo semestre, 2018 · Diseño Gráfico</p>
+            <p>Universidad de Chile</p>
+            <p><a href="#page-top"><i class="fas fa-arrow-alt-circle-up"></i></a></p>
+        </div>
+    </footer>
+
+    <!-- Vamos a buscar algo de JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!--ahora aprovechamos que Bootstrap necesita jQuery, para manipular el DOM-->
+    <script>
+        (function($) {
+            "use strict"; // Start of use strict
+
+            $(".titular").text("Población Mundial");
+        })(jQuery); // End of use strict
+    </script>
+
+    <!--el tema de bootstrap que usamos necesita este script para funcionar-->
+    <script src="js/theme.js"></script>
+
+    <!--acá comienzan las visualizaciones-->
+
+    <!--primero el mapa-->
+
+   <script>
+        var mymap = L.map('leaflet').setView([31.8468471, -9.686701], 1);
+
+        var georeferencias = [
+        {
+            lugar: "China",
+            coordenadas: [35.0000000, 105.0000000],  
+					 
+        }, {
+            lugar: "India",
+					
+            coordenadas: [20.0000000, 77.0000000]
+        }, {
+            lugar: "U.S.A",
+            coordenadas: [38.0000000, -97.0000000]
+    
+        }
+        ];
+        
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 1,
+            minZoom: 1,
+            id: 'mapbox.streets'
+        }).addTo(mymap);
+        
+        for (var x = 0; x < georeferencias.length; x++) {
+            lat = georeferencias[x].coordenadas[0];
+            lon = georeferencias[x].coordenadas[1];
+            circle = L.circle([lat, lon], {
+                fillColor: '#000',
+                fillOpacity: 0.5,
+                weight: 0,
+                radius: 700000
+            }).addTo(mymap);
+            console.log(lat + "," + lon);
+        }
+    </script>
+
+
+    <!--luego voy a buscar una biblioteca que Data Driven Documents (DDD = d3)-->
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!--esto es para un gráfico -->
+
+    <script>
+        var Paises = [
+        {habitantes: "Tokio, Japón.", Numero: 38140000 },
+        {habitantes: "Nueva Delhi, India", Numero: 26454000 },
+        {habitantes: "Shanghai, China", Numero:24484000},
+        {habitantes:"Mumbai (Bombay), India", Numero:21357000},
+        {habitantes:"São Paulo, Brasil", Numero:21297000},
+        {habitantes:"Beijing, China", Numero:21240000},
+        {habitantes:"Ciudad de México, México", Numero:21157000},
+        {habitantes:"Kinki MMA (Osaka), Japón", Numero:20337000},
+        {habitantes:"Al-Qahirah (El Cairo), Egipto", Numero:19128000},
+        {habitantes:" Nueva York-Newark, Estados Unidos", Numero:18604000},
+        {habitantes:"Dhaka, Bangladesh", Numero:18237000},
+        {habitantes:"Karachi, Pakistán", Numero:17121000},
+        {habitantes:"Buenos Aires, Argentina", Numero:15334000},
+        {habitantes:"Kolkata (Calcuta), India", Numero:14980000},
+        {habitantes:"Estambul, Turquía", Numero:14365000},
+       ];
+        var nro= 200000;
+
+        var coso = d3.select("#chart-1").attr("width", "100%").attr("height", "700").style("background", "#4abdac");
+
+        coso.selectAll("rect").data(Paises).enter().append("rect").attr("x",40).attr("y", function(d, i) { return (i + 1) * 40; }).attr("width", function(d) { return d.Numero/nro }).attr("height",30).attr("fill","#fc4a1a")
+
+         coso.selectAll("text").data(Paises).enter().append("text").text(function(d) {return (d.habitantes + " (" + d.Numero + " habitantes )")}).attr("text-anchor", "start").attr("x", function(d, i) { return (d.Numero/nro)+50 }).attr("y", function(d, i) { return ((i + 1) * 40)+20 }).attr("font-family", "sans-serif").attr("font-size", "12px").attr("fill", "white");
+    </script>
+
+    <!--esto es para otro gráfico -->
+
+    <script>
+        
+        
+      var data = [
+      {name: 'Ciudad del Vaticano', habitantes: 1, color:"#f7b733"},
+      {name: 'Tuvalu', habitantes: 2, color:"#f7b733"},
+      {name: 'Nauru', habitantes: 3, color:"#f7b733"},
+      {name: 'Palaos', habitantes: 4, color:"#f7b733"},
+    ]    
+    var esto = d3.select("#chart-2").attr("width", "100%").attr("height", "400").style("background", "#4abdac");
+    var g = esto.selectAll("g")
+      .data(data)
+      .enter()
+      .append("g")  
+    g.append("circle")
+      .attr("cx", function(d, i) { return (120 * (i++)+100); })
+      .attr("cy", function(d) { return 200; })
+      .attr("r", function(d) { return d.habitantes*10; })
+      .attr("fill",function(d){ return d.color; })
+    g.append("text")
+      .attr("x", function(d, i) { return (120 * (i++)+100); })
+      .attr("y", function(d, i) { return 300; })
+      .attr("fill","gray")
+      .attr('text-anchor','middle')
+      .text(function(d) { return d.name; })
+    </script>
+
+</body>
+
+</html>
